@@ -1,0 +1,24 @@
+{
+  "name": "ccda-compiler",
+  "version": "2.0.0",
+  "description": "CCDA Compiler — Contract-Driven Code Generator",
+  "private": true,
+  "scripts": {
+    "compile": "ts-node compiler.ts",
+    "compile:watch": "nodemon --watch contract.yaml --ext yaml --exec \"ts-node compiler.ts\"",
+    "demo:shock": "node -e \"const fs=require('fs'); fs.copyFileSync('contract.shock.yaml','contract.yaml');\" && ts-node compiler.ts",
+    "demo:reset": "node -e \"const fs=require('fs'),y=require('js-yaml'); const c=y.load(fs.readFileSync('contract.yaml','utf8')); if(c.endpoints[0].response.price==='string'){console.log('Resetting price back to number...');} \" && node -e \"const fs=require('fs'); const orig=fs.readFileSync('contract.yaml','utf8').replace('price: string','price: number').replace('SHOCK TEST','Product Catalog API'); fs.writeFileSync('contract.yaml',orig);\" && ts-node compiler.ts",
+    "demo:add-endpoint": "ts-node scripts/demo-add-endpoint.ts",
+    "demo:compare": "node scripts/demo-compare.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.14.0",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  }
+}

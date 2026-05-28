@@ -1,0 +1,33 @@
+version: "2.0.0"
+
+info:
+  title: "SHOCK TEST — Price type changed!"
+  description: Demonstrates build-time safety when a type changes
+
+endpoints:
+
+  - name: Products
+    endpoint: /products
+    method: GET
+    auth:
+      required: true
+      roles:
+        - admin
+        - manager
+    response:
+      id: integer
+      title: string
+      price: string      # ← ⚠️ CHANGED from number to string!
+      in_stock: boolean
+      category: string
+
+  - name: Categories
+    endpoint: /categories
+    method: GET
+    auth:
+      required: false
+      roles: []
+    response:
+      id: integer
+      name: string
+      product_count: integer

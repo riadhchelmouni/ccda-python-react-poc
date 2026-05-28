@@ -1,0 +1,22 @@
+# Node
+node_modules/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+
+# Generated — these are recreated by the compiler
+backend_app/generated/*.py
+frontend_app/src/generated/*.ts
+!backend_app/generated/.gitkeep
+!frontend_app/src/generated/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp

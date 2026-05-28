@@ -1,0 +1,46 @@
+# ═══════════════════════════════════════════════════════════════
+# CCDA Contract — Single Source of Truth v2.0.0
+#
+# هذا الملف يقود توليد الكود لكلا الطرفين تلقائياً.
+# بعد أي تعديل شغّل: npm run compile
+#
+# ── سيناريو الإضافة ──────────────────────────────────────────
+#   أضف endpoint جديداً هنا → أعد تشغيل المحرك → الكود يتزامن
+#
+# ── سيناريو الصدمة ───────────────────────────────────────────
+#   شغّل: npm run demo:shock  لترى كيف يكسر تغيير النوع الكود
+# ═══════════════════════════════════════════════════════════════
+
+version: "2.0.0"
+
+info:
+  title: Product Catalog API
+  description: CCDA PoC — multi-endpoint demonstration
+
+endpoints:
+
+  - name: Products
+    endpoint: /products
+    method: GET
+    auth:
+      required: true
+      roles:
+        - admin
+        - manager
+    response:
+      id: integer
+      title: string
+      price: number
+      in_stock: boolean
+      category: string
+
+  - name: Categories
+    endpoint: /categories
+    method: GET
+    auth:
+      required: false
+      roles: []
+    response:
+      id: integer
+      name: string
+      product_count: integer
