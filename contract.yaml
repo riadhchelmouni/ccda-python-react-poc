@@ -1,14 +1,14 @@
 # ═══════════════════════════════════════════════════════════════
 # CCDA Contract — Single Source of Truth v2.0.0
 #
-# هذا الملف يقود توليد الكود لكلا الطرفين تلقائياً.
-# بعد أي تعديل شغّل: npm run compile
+# This file drives code generation for both sides automatically.
+# After any change run: npm run compile
 #
-# ── سيناريو الإضافة ──────────────────────────────────────────
-#   أضف endpoint جديداً هنا → أعد تشغيل المحرك → الكود يتزامن
+# ── Addition scenario ─────────────────────────────────────────
+#   Add a new endpoint here → re-run the compiler → code syncs
 #
-# ── سيناريو الصدمة ───────────────────────────────────────────
-#   شغّل: npm run demo:shock  لترى كيف يكسر تغيير النوع الكود
+# ── Shock scenario ────────────────────────────────────────────
+#   Run: npm run demo:shock  to see how a type change breaks the code
 # ═══════════════════════════════════════════════════════════════
 
 version: "2.0.0"

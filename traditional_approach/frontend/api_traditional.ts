@@ -1,11 +1,11 @@
 // ═══════════════════════════════════════════════════════════════
 //  TRADITIONAL APPROACH — Frontend Types & API (Manual, no contract)
 //
-//  مشكلة هذا الأسلوب:
-//   ✗ Interface مكتوب يدوياً — نسخة مستقلة عن Backend
-//   ✗ price: number هنا، لكن Backend قد يُغيّره والـ TS لا يعلم
-//   ✗ لا أحد يضمن أن هذا الملف متزامن مع Backend في أي وقت
-//   ✗ Auth roles مكررة هنا وفي Backend — مصدران للحقيقة
+//  Problems with this approach:
+//   ✗ Interface written manually — an independent copy of the Backend
+//   ✗ price: number here, but Backend may change it and TypeScript won't know
+//   ✗ Nobody guarantees this file stays in sync with Backend at any time
+//   ✗ Auth roles duplicated here and in Backend — two sources of truth
 // ═══════════════════════════════════════════════════════════════
 import { useState, useEffect, useCallback } from 'react';
 

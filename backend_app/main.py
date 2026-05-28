@@ -1,11 +1,11 @@
 # ═══════════════════════════════════════════════════════════════
 # CCDA PoC — Backend Entry Point  (Developer-written code)
 #
-# كل ما يكتبه المطور هنا هو:
-#   1. بيانات المصدر (Mock أو قاعدة بيانات حقيقية)
-#   2. تسجيل الدوال مع الـ Router المولَّد تلقائياً
+# All the developer writes here is:
+#   1. Data source (Mock or a real database)
+#   2. Registering functions with the auto-generated Router
 #
-# كل شيء آخر (Pydantic models، Auth، Routes) مولَّد من contract.yaml
+# Everything else (Pydantic models, Auth, Routes) is generated from contract.yaml
 #
 # Run: python -m uvicorn main:app --reload
 # ═══════════════════════════════════════════════════════════════
@@ -33,7 +33,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── ما يكتبه المطور فقط: البيانات ──────────────────────────────
+# ── Developer writes only: data ─────────────────────────────────
 
 MOCK_PRODUCTS = [
     {"id": 1, "title": "Laptop Pro X1",       "price": 1299.99, "in_stock": True,  "category": "Electronics"},
@@ -60,7 +60,7 @@ def fetch_categories() -> List[dict]:
     return MOCK_CATEGORIES
 
 
-# ── تسجيل الدوال مع الـ Router المولَّد ──────────────────────────
+# ── Register functions with the generated Router ─────────────────
 register_products_service(fetch_products)
 register_categories_service(fetch_categories)
 app.include_router(router)

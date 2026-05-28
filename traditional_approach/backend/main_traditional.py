@@ -1,11 +1,11 @@
 # ═══════════════════════════════════════════════════════════════
 #  TRADITIONAL APPROACH — Backend (Manual, no contract)
 #
-#  مشكلة هذا الأسلوب:
-#   ✗ النوع price: float — هنا يدوي، والـ Frontend لا يعلم
-#   ✗ إذا غيّر Backend النوع إلى str → Frontend يكسر في Runtime
-#   ✗ لا sync تلقائي — كل تعديل يحتاج تعديل يدوي في الطرفين
-#   ✗ Auth logic مكتوب يدوياً ويمكن نسيانه
+#  Problems with this approach:
+#   ✗ The type price: float — manual here, and the Frontend has no idea
+#   ✗ If Backend changes the type to str → Frontend breaks at Runtime
+#   ✗ No automatic sync — every change requires a manual update on both sides
+#   ✗ Auth logic written manually and can be forgotten
 # ═══════════════════════════════════════════════════════════════
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
